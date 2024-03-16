@@ -39,8 +39,8 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     }),
 
     [breakpoints.up("xl")]: {
-      boxShadow: transparentSidenav ? "none" : xxl,
-      marginBottom: transparentSidenav ? 0 : "inherit",
+      boxShadow: xxl,
+      marginBottom: "inherit",
       left: "0",
       width: sidebarWidth,
       transform: "translateX(0)",
@@ -60,8 +60,8 @@ export default styled(Drawer)(({ theme, ownerState }) => {
     }),
 
     [breakpoints.up("xl")]: {
-      boxShadow: transparentSidenav ? "none" : xxl,
-      marginBottom: transparentSidenav ? 0 : "inherit",
+      boxShadow: xxl,
+      marginBottom: "inherit",
       left: "0",
       width: pxToRem(96),
       overflowX: "hidden",
@@ -84,7 +84,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
             gradients.sidenav.state,
             gradients.sidenav.deg
           ),
-    backdropFilter: transparentSidenav ? "unset" : "blur(120px)",
+    backdropFilter: "blur(120px)",
       ...(miniSidenav ? drawerCloseStyles() : drawerOpenStyles()),
     },
   };

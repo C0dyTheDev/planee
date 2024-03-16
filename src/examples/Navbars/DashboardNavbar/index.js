@@ -71,14 +71,14 @@ function DashboardNavbar({ absolute, light, isMini }) {
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
-      setNavbarType("sticky");
+      setNavbarType("static"); //revert to sticky if you want your nav to stick to your top
     } else {
       setNavbarType("static");
     }
 
     // A function that sets the transparent state of the navbar.
     function handleTransparentNavbar() {
-      setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
+      setTransparentNavbar(dispatch, true);
     }
 
     /** 
@@ -150,7 +150,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
         {isMini ? null : (
           <VuiBox sx={(theme) => navbarRow(theme, { isMini })}>
             <VuiBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in">
+              <Link to="/profile">
                 <IconButton sx={navbarIconButton} size="medium">
                   <Icon
                     sx={({ palette: { dark, white } }) => ({
@@ -169,18 +169,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
               >
                 <Icon className={"text-white"}>{miniSidenav ? "menu_open" : "menu"}</Icon>
               </IconButton>
-              <IconButton
-                size="medium"
-                color="inherit"
-                sx={navbarIconButton}
-                aria-controls="notification-menu"
-                aria-haspopup="true"
-                variant="contained"
-                onClick={handleOpenMenu}
-              >
-                <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
-              </IconButton>
-              {renderMenu()}
             </VuiBox>
           </VuiBox>
         )}

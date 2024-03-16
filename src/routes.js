@@ -48,13 +48,14 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
 // Vision UI Dashboard React icons
-import { IoRocketSharp } from "react-icons/io5";
-import { IoIosDocument } from "react-icons/io";
+import {IoApps, IoCalendar, IoRocketSharp} from "react-icons/io5";
+import {IoIosAdd, IoIosDocument} from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoBuild } from "react-icons/io5";
 import { BsCreditCardFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
+import Tasks from "layouts/tables";
 
 const routes = [
   {
@@ -68,11 +69,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
+    name: "Your Tasks",
     key: "tables",
     route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: Tables,
+    icon: <IoCalendar size="15px" color="inherit" />,
+    component: Tasks,
     noCollapse: true,
   },
   { type: "title", title: "Account", key: "account-pages" },
@@ -83,15 +84,6 @@ const routes = [
     route: "/profile",
     icon: <BsFillPersonFill size="15px" color="inherit" />,
     component: Profile,
-    noCollapse: true,
-  },
-  {
-    type: "collapse",
-    name: "Sign Out",
-    key: "sign-out",
-    route: "/sign-out",
-    icon: <BsFillPersonFill size="15px" color="inherit" />,
-    component: SignIn,
     noCollapse: true,
   },
 ];

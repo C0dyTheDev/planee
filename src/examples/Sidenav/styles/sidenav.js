@@ -33,7 +33,7 @@ export default function sidenavLogoLabel(theme, ownerState) {
     }),
 
     [breakpoints.up("xl")]: {
-      opacity: transparentSidenav ? 0 : 1,
+      opacity: 1,
     },
   };
 }

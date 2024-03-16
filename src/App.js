@@ -108,30 +108,6 @@ export default function App() {
       return null;
     });
 
-  const configsButton = (
-    <VuiBox
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      width="3.5rem"
-      height="3.5rem"
-      bgColor="info"
-      shadow="sm"
-      borderRadius="50%"
-      position="fixed"
-      right="2rem"
-      bottom="2rem"
-      zIndex={99}
-      color="white"
-      sx={{ cursor: "pointer" }}
-      onClick={handleConfiguratorOpen}
-    >
-      <Icon fontSize="default" color="inherit">
-        settings
-      </Icon>
-    </VuiBox>
-  );
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -145,7 +121,6 @@ export default function App() {
             onMouseLeave={handleOnMouseLeave}
           />
           <Configurator />
-          {configsButton}
         </>
       <Switch>
         {getRoutes(routes)}

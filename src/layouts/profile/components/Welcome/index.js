@@ -41,7 +41,7 @@ const Welcome = () => {
             Welcome back!
           </VuiTypography>
           <VuiTypography color="white" variant="button" fontWeight="regular">
-            Nice to see you, Mark Johnson!
+            Nice to see you, Michal Kulhanek!
           </VuiTypography>
         </VuiBox>
         <VuiBox justifySelf="flex-end">
@@ -69,7 +69,7 @@ const Welcome = () => {
               },
             }}
           >
-            Tap to record
+            See your tasks
             <Icon sx={{ fontWeight: "bold", ml: "5px" }}>arrow_forward</Icon>
           </VuiTypography>
         </VuiBox>
