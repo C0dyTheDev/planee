@@ -132,39 +132,13 @@ export default function App() {
     </VuiBox>
   );
 
-  return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand=""
-              brandName="VISION UI FREE"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            <Configurator />
-            {configsButton}
-          </>
-        )}
-        {layout === "vr" && <Configurator />}
-        <Switch>
-          {getRoutes(routes)}
-          <Redirect from="*" to="/dashboard" />
-        </Switch>
-      </ThemeProvider>
-    </CacheProvider>
-  ) : (
+  return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {layout === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
-            brand=""
+            brand="PLANEE"
             brandName="PLANEE"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
@@ -173,8 +147,6 @@ export default function App() {
           <Configurator />
           {configsButton}
         </>
-      )}
-      {layout === "vr" && <Configurator />}
       <Switch>
         {getRoutes(routes)}
         <Redirect from="*" to="/dashboard" />
