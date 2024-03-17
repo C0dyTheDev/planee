@@ -79,7 +79,7 @@ function Overview() {
             item
             xs={12}
             xl={4}
-            xxl={3}
+            xxl={4}
             sx={({ breakpoints }) => ({
               minHeight: "400px",
               [breakpoints.only("xl")]: {
@@ -150,7 +150,7 @@ function Overview() {
               </Grid>
             </Grid>
         </Grid>
-          <Grid container spacing={2} xs={12} xl={3} xxl={12}>
+          <Grid container spacing={3} xs={12} xl={12} xxl={12}>
               <Grid item>
                   <ThemeCard
                       title={"Purple"}

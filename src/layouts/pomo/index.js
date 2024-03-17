@@ -61,79 +61,19 @@ import { barChartDataDashboard } from "layouts/dashboard/data/barChartData";
 import { barChartOptionsDashboard } from "layouts/dashboard/data/barChartOptions";
 import React from "react";
 import Calendar from "../../components/Calendar";
+import PomoTimer from "../../examples/PomoTimer";
 
-function Dashboard() {
+function Pomo() {
   const { gradients } = colors;
   const { cardContent } = gradients;
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <VuiBox py={3}>
+      <VuiBox py={3} mb={50}>
         <VuiBox mb={3}>
           <Grid container spacing={2}>
-            <Grid item xs={12} lg={12} xl={7}>
-              <WelcomeMark />
-            </Grid>
-             <Grid item xs={12} md={6} xl={5}>
-                <MiniStatisticsCard
-                  title={{ text: "tasks completed today" }}
-                  count="13"
-                  icon={{ color: "info", component: <IoGlobe size="22px" color="white" /> }}
-                />
-               <br/>
-               <MiniStatisticsCard
-                   title={{ text: "tasks to complete" }}
-                   count="21"
-                   icon={{ color: "info", component: <IoDocumentText size="22px" color="white" /> }}
-               />
-             </Grid>
-          </Grid>
-        </VuiBox>
-        <VuiBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={6} xl={5}>
-              <Card>
-                <VuiBox sx={{ height: "100%" }}>
-                  <VuiTypography variant="lg" color="white" fontWeight="bold" mb="5px">
-                    Monthly Tasks Completed
-                  </VuiTypography>
-                  <VuiBox display="flex" alignItems="center" mb="40px">
-                    <VuiTypography variant="button" color="success" fontWeight="bold">
-                      +20% more{" "}
-                      <VuiTypography variant="button" color="text" fontWeight="regular">
-                        in 2024
-                      </VuiTypography>
-                    </VuiTypography>
-                  </VuiBox>
-                  <VuiBox sx={{}}>
-                    <LineChart
-                      lineChartData={lineChartDataDashboard}
-                      lineChartOptions={lineChartOptionsDashboard}
-                    />
-                  </VuiBox>
-                </VuiBox>
-              </Card>
-            </Grid>
-            <Grid item xs={12} lg={6} xl={7}>
-              <Card>
-                <VuiBox>
-                  <VuiBox
-                    mb="24px"
-                    sx={{
-                      background: linearGradient(
-                        cardContent.main,
-                        cardContent.state,
-                        cardContent.deg
-                      ),
-                      borderRadius: "20px",
-                    }}
-                  >
-                    <Calendar/>
-                  </VuiBox>
-                </VuiBox>
-              </Card>
-            </Grid>
+            <PomoTimer time={"25:00"}></PomoTimer>
           </Grid>
         </VuiBox>
       </VuiBox>
@@ -141,4 +81,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Pomo;

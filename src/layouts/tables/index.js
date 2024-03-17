@@ -57,9 +57,9 @@ import {lineChartOptionsDashboard} from "../dashboard/data/lineChartOptions";
 function Tasks() {
   const { gradients } = colors;
   const { cardContent } = gradients;
-  const { columns, rows } =
+  const { columnsAll, rowsAll } =
       {
-    columns: [
+    columnsAll: [
         { name: "done", align: "left" },
         { name: "name", align: "left" },
         { name: "tags", align: "center" },
@@ -67,7 +67,7 @@ function Tasks() {
         { name: "dueDate", align: "center" },
     ],
 
-    rows: [
+    rowsAll: [
         {
             done: <Checkbox size={"large"} defaultChecked={true} className={"checkbox"}></Checkbox>,
             name: <VuiTypography variant="lg" color="white" fontWeight="bold" mb="5px">Math Test</VuiTypography>,
@@ -179,6 +179,94 @@ function Tasks() {
         },
     ],
   };
+    const { columnsToday, rowsToday } =
+        {
+            columnsToday: [
+                { name: "done", align: "left" },
+                { name: "name", align: "left" },
+                { name: "tags", align: "center" },
+                { name: "startDate", align: "center" },
+                { name: "dueDate", align: "center" },
+            ],
+
+            rowsToday: [
+                {
+                    done: <Checkbox size={"large"} defaultChecked={true} className={"checkbox"}></Checkbox>,
+                    name: <VuiTypography variant="lg" color="white" fontWeight="bold" mb="5px">Math Test</VuiTypography>,
+                    tags: (
+                        <VuiBadge
+                            variant="standard"
+                            badgeContent="School"
+                            color="success"
+                            size="xs"
+                            container
+                            sx={({ palette: { white, success }, borders: { borderRadius, borderWidth } }) => ({
+                                background: success.main,
+                                border: `${borderWidth[1]} solid ${success.main}`,
+                                borderRadius: borderRadius.md,
+                                color: white.main,
+                            })}
+                        />
+                    ),
+                    startDate: (
+                        <VuiTypography variant="caption" color="white" fontWeight="medium">
+                            24/03/19
+                        </VuiTypography>
+                    ),
+                    dueDate: (
+                        <VuiTypography variant="caption" color="white" fontWeight="medium">
+                            23/04/19
+                        </VuiTypography>
+                    ),
+                },
+                {
+                    done: <Checkbox size={"large"} defaultChecked={false} className={"checkbox"}></Checkbox>,
+                    name:
+                        <VuiTypography variant="lg" color="white" fontWeight="bold" mb="5px">
+                            Working on UUR
+                        </VuiTypography>,
+                    tags: (
+                        <>
+                            <VuiBadge
+                                variant="standard"
+                                badgeContent="School"
+                                color="success"
+                                size="xs"
+                                container
+                                sx={({ palette: { white, success }, borders: { borderRadius, borderWidth } }) => ({
+                                    background: success.main,
+                                    border: `${borderWidth[1]} solid ${success.main}`,
+                                    borderRadius: borderRadius.md,
+                                    color: white.main,
+                                })}
+                            /> <> </>
+                            <VuiBadge
+                                variant="standard"
+                                badgeContent="Work"
+                                color="error"
+                                size="xs"
+                                container
+                                sx={({ palette: { white, error }, borders: { borderRadius, borderWidth } }) => ({
+                                    background: error.main,
+                                    border: `${borderWidth[1]} solid ${error.main}`,
+                                    borderRadius: borderRadius.md,
+                                    color: white.main,
+                                })}
+                            /></>
+                    ),
+                    startDate: (
+                        <VuiTypography variant="caption" color="white" fontWeight="medium">
+                            24/03/16
+                        </VuiTypography>
+                    ),
+                    dueDate: (
+                        <VuiTypography variant="caption" color="white" fontWeight="medium">
+                            23/04/20
+                        </VuiTypography>
+                    ),
+                },
+            ],
+        };
   const { columns: prCols, rows: prRows } = projectsTableData;
 
   return (
@@ -188,31 +276,60 @@ function Tasks() {
         <VuiBox mb={3}>
             <Grid container spacing={3}>
                 <Grid  item xs={12} lg={6} xl={6}>
-                    <Card>
-                        <VuiBox display="flex" justifyContent="space-between" alignItems="center" mb="22px">
-                            <VuiTypography variant="lg" color="white">
-                                Your Tasks
-                            </VuiTypography>
-                        </VuiBox>
-                        <VuiBox
-                            sx={{
-                                "& th": {
-                                    borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
-                                        `${borderWidth[1]} solid ${grey[700]}`,
-                                },
-                                "& .MuiTableRow-root:not(:last-child)": {
-                                    "& td": {
-                                        borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
-                                            `${borderWidth[1]} solid ${grey[700]}`,
-                                    },
-                                },
-                            }}
-                        >
-                            <Table columns={columns} rows={rows} />
-                        </VuiBox>
-                    </Card>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} lg={12} xl={12}>
+                            <Card>
+                                <VuiBox display="flex" justifyContent="space-between" alignItems="center" mb="22px">
+                                    <VuiTypography variant="lg" color="white">
+                                        Today's Tasks
+                                    </VuiTypography>
+                                </VuiBox>
+                                <VuiBox
+                                    sx={{
+                                        "& th": {
+                                            borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
+                                                `${borderWidth[1]} solid ${grey[700]}`,
+                                        },
+                                        "& .MuiTableRow-root:not(:last-child)": {
+                                            "& td": {
+                                                borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
+                                                    `${borderWidth[1]} solid ${grey[700]}`,
+                                            },
+                                        },
+                                    }}
+                                >
+                                    <Table columns={columnsToday} rows={rowsToday} />
+                                </VuiBox>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} lg={12} xl={12}>
+                            <Card>
+                                <VuiBox display="flex" justifyContent="space-between" alignItems="center" mb="22px">
+                                    <VuiTypography variant="lg" color="white">
+                                        Your Tasks
+                                    </VuiTypography>
+                                </VuiBox>
+                                <VuiBox
+                                    sx={{
+                                        "& th": {
+                                            borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
+                                                `${borderWidth[1]} solid ${grey[700]}`,
+                                        },
+                                        "& .MuiTableRow-root:not(:last-child)": {
+                                            "& td": {
+                                                borderBottom: ({ borders: { borderWidth }, palette: { grey } }) =>
+                                                    `${borderWidth[1]} solid ${grey[700]}`,
+                                            },
+                                        },
+                                    }}
+                                >
+                                    <Table columns={columnsAll} rows={rowsAll} />
+                                </VuiBox>
+                            </Card>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} lg={6} xl={5}>
+                <Grid item xs={12} lg={6} xl={6}>
                     <Card>
                         <VuiBox>
                             <VuiBox

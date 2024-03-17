@@ -118,7 +118,7 @@ function ReferralTracking() {
 							variant='determinate'
 							value={70}
 							size={window.innerWidth >= 1024 ? 200 : window.innerWidth >= 768 ? 170 : 200}
-							color='success'
+							color='info'
 						/>
 						<VuiBox
 							sx={{

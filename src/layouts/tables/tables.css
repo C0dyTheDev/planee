@@ -1,3 +1,7 @@
 .checkbox{
     outline: 1px mediumslateblue;
 }
+
+.fc .fc-scroller-liquid-absolute, .fc-scroller{
+    overflow: hidden !important;
+}

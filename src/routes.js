@@ -48,7 +48,7 @@ import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 
 // Vision UI Dashboard React icons
-import {IoApps, IoCalendar, IoRocketSharp} from "react-icons/io5";
+import {IoApps, IoCalendar, IoRocketSharp, IoTimer} from "react-icons/io5";
 import {IoIosAdd, IoIosDocument} from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoBuild } from "react-icons/io5";
@@ -56,6 +56,7 @@ import { BsCreditCardFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
 import Tasks from "layouts/tables";
+import Pomo from "./layouts/pomo";
 
 const routes = [
   {
@@ -74,6 +75,15 @@ const routes = [
     route: "/tables",
     icon: <IoCalendar size="15px" color="inherit" />,
     component: Tasks,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "PoMo Timer",
+    key: "pomo",
+    route: "/pomo",
+    icon: <IoTimer size="15px" color="inherit" />,
+    component: Pomo,
     noCollapse: true,
   },
   { type: "title", title: "Account", key: "account-pages" },
